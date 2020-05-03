@@ -1,0 +1,163 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3aadaa;
+}
+
+.card {
+  box-shadow: 0 0 8px gray;
+  max-width: 90%;
+  padding-bottom: 2.5em;
+  background-color: #fafafa;
+}
+
+.card__header {
+  background-color: #6f2d91;
+  color: #f3f3f3;
+  text-align: center;
+  padding: 1em 0;
+  position: relative;
+}
+
+.card__header:after {
+  content: "";
+  position: absolute;
+  bottom: -.6em;
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #6f2d91;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.icon {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  height: 2.2em;
+  width: 2.2em;
+  padding: 0.5em;
+  font-size: 1.3rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.card__title {
+  text-transform: uppercase;
+  font-family: "Baloo Thambi 2";
+  font-size: 1.7rem;
+}
+
+.form {
+  padding: 0 2em;
+  padding-top: 2em;
+}
+
+.input {
+  margin: 1em 0;
+  height: 2em;
+  position: relative;
+  font-family: Arial;
+}
+
+.input__icon {
+  background-color: #6f2d91;
+  color: white;
+  height: 100%;
+  display: inline-block;
+  padding: 0.5em;
+  position: absolute;
+}
+
+.input--text {
+  border: none;
+  height: 100%;
+  width: 100%;
+  background-color: #f3f3f3;
+  box-shadow: inset 0 0 1px gray;
+  padding-left: 3em;
+  color: #292929;
+  font-size: 1rem;
+}
+
+.input--text:focus {
+  box-shadow: inset 0 0 2px #6f2d91;
+  outline: 1px solid #6f2d91;
+}
+
+.input--text:focus ~ .input__label,
+.input--text:not(:placeholder-shown) ~ .input__label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.input__label {
+  position: absolute;
+  top: 50%;
+  left: 3em;
+  transform: translateY(-50%);
+  color: gray;
+}
+
+.input__label--checkbox {
+  font-size: 0.9rem;
+  font-family: Arial;
+}
+
+.input__label--checkbox a {
+  color: #6f2d91;
+}
+
+.form__submit {
+  background-color: #6f2d91;
+  color: white;
+  border: none;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 2.8em;
+}
+
+.form__submit:hover,
+.form__submit:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.card__footer {
+  padding: 1em 2em;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: Arial;
+}
+
+.card__footer a {
+  text-decoration: none;
+  color: #6f2d91;
+  font-weight: bolder;
+}
+
+.card__footer a:hover {
+  text-decoration: underline;
+}
+
+.original {
+  background: #237977;
+  width: 100%;
+  line-height: 2rem;
+  font-family: Monospace;
+  text-align: center;
+}
+
+
