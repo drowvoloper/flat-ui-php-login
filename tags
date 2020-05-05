@@ -4,3 +4,29 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+conn	connection.php	/^	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);$/;"	v
+dbname	connection.php	/^$dbname = "pruebas";$/;"	v
+email	signup.php	/^		$email = $_POST["email"];	$/;"	v
+message	login.php	/^		$message = "Username and don't match";$/;"	v
+message	signup.php	/^					$message = "Sorry, an account with that username already exists";$/;"	v
+message	signup.php	/^			$message = "Account created successfully";$/;"	v
+message	signup.php	/^			$message = "Oops! There was an error";$/;"	v
+password	connection.php	/^$password = "root";$/;"	v
+password	login.php	/^	$password = $_POST["password"];$/;"	v
+password	signup.php	/^		$password = password_hash($_POST["password"], PASSWORD_BCRYPT);$/;"	v
+records	login.php	/^	$records = $conn->prepare($sql);$/;"	v
+records	signup.php	/^	$records = $conn->prepare($sql);$/;"	v
+results	login.php	/^	$results = $records->fetch(PDO::FETCH_ASSOC);$/;"	v
+results	signup.php	/^	$results = $records->fetch(PDO::FETCH_ASSOC);$/;"	v
+server	connection.php	/^$server = "localhost";$/;"	v
+sql	login.php	/^	$sql = "SELECT username, password FROM users WHERE username=:username";$/;"	v
+sql	signup.php	/^		$sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";$/;"	v
+sql	signup.php	/^	$sql = "SELECT username FROM users WHERE username=:username";$/;"	v
+stmt	signup.php	/^		$stmt = $conn->prepare($sql);$/;"	v
+style	signup.php	/^					$style = "message--error";$/;"	v
+style	signup.php	/^			$style = "message--error";$/;"	v
+style	signup.php	/^			$style = "message--info";$/;"	v
+username	connection.php	/^$username = "root";$/;"	v
+username	index.php	/^	$username = $_SESSION["username"];$/;"	v
+username	login.php	/^	$username = $_POST["username"];$/;"	v
+username	signup.php	/^	$username = $_POST["username"];$/;"	v

@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +18,38 @@
   max-width: 90%;
   padding-bottom: 2.5em;
   background-color: #fafafa;
+}
+
+.card--welcome {
+	width: 500px;
+	text-align: center;
+	padding: 3em;
+	font-family: Arial;
+}
+
+.card--welcome a {
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 2em;
+	font-size: 1rem;
+	font-family: monospace;
+	text-transform: uppercase;
+	background-color: #dcdcdc;
+	padding: .4em;
+	border: 1px solid #2f4f4f;	
+	border-right: 3px solid #2f4f4f;
+	border-bottom: 3px solid #2f4f4f;
+	color: #2f4f4f;
+}
+
+.card--welcome a:hover,
+.card--welcome a:focus {
+	opacity: .8;
+}
+
+.card--welcome a:active {
+	border-right: 2px solid #2f4f4f;
+	border-bottom: 2px solid #2f4f4f;
 }
 
 .card__header {
@@ -102,6 +133,31 @@
   pointer-events: none;
 }
 
+.input--remember {
+  width: 100%;
+  font-size: 0.9rem;
+  font-family: Arial;
+  display: flex;
+  align-items: center;
+}
+
+.input__label--checkbox {
+  margin-left: .6em;
+}
+
+.input__link {
+  flex-grow: 1;
+  text-align: right;
+  text-decoration: none;
+  color: gray;
+}
+
+.input__link:hover,
+.input__link:focus {
+  color: #292929;
+  text-decoration: underline;
+}
+
 .input__label {
   position: absolute;
   top: 50%;
@@ -150,6 +206,62 @@
 
 .card__footer a:hover {
   text-decoration: underline;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.social__link {
+  padding: 1em;
+}
+
+.social__link:hover {
+  opacity: .8;
+	cursor: not-allowed;
+}
+
+.social__img {
+  width: 50px;
+  height: 50px;
+}
+
+.bg-login {
+	background-color: #64c72f;
+}
+
+
+.card__header.bg-login:after {
+	border-top-color: #64c72f;
+}
+
+a.login-color {
+	color: #64c72f;
+}
+
+.focus-login:focus {
+  box-shadow: inset 0 0 2px #64c72f;
+  outline: 1px solid #64c72f;
+}
+
+
+.message--error,
+.message--info {
+	font-family: Arial;
+	border: .5px solid;
+	text-align: center;
+}
+
+.message--error {
+	color: #dc143c;
+	border-color: #dc143c;
+}
+
+.message--info {
+	color: #006400;
+	border-color: #006400;
 }
 
 .original {

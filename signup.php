@@ -1,9 +1,48 @@
+<?php
+
+require "connection.php";
+
+if (isset($_POST["register"])) {
+	$username = $_POST["username"];
+	$sql = "SELECT username FROM users WHERE username=:username";
+	$records = $conn->prepare($sql);
+	$records->bindParam(":username", $username);
+	$records->execute();
+	$results = $records->fetch(PDO::FETCH_ASSOC);
+
+	if (count($results["username"]) > 0) {
+					echo $results["username"];
+					$style = "message--error";
+					$message = "Sorry, an account with that username already exists";
+	} else {
+
+		$sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
+		$stmt = $conn->prepare($sql);
+		$password = password_hash($_POST["password"], PASSWORD_BCRYPT);
+		$email = $_POST["email"];	
+		$stmt->bindParam(":username", $username);
+		$stmt->bindParam(":password", $password);
+		$stmt->bindParam(":email", $email);
+
+		if ($stmt->execute()) {
+			$style = "message--info";
+			$message = "Account created successfully";
+		} else {
+			$style = "message--error";
+			$message = "Oops! There was an error";
+		}
+	}
+	
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-	<link rel="stylesheet" href="./styles/style.css"> 
+	<link rel="stylesheet" href="./styles/mystyle.css"> 
   <title>Sign up !</title>
 </head>
 <body>
@@ -15,22 +54,26 @@
       </div>
       <h1 class="card__title">Register</h1>
     </div>
-    <div class="form">
+		<div class="form">
+    <?php if ($message != ''): ?>
+			<p class="<?= $style; ?>"> <?= $message; ?></p>
+    <?php endif; ?>
+
       <form action="signup.php" method="POST">
         <div class="input">
           <span class="input__icon" aria-hidden="true"><i class="fas fa-user"></i></span>
-          <input type="text" name="username" id="username" class="input--text" placeholder="username">
+          <input type="text" name="username" id="username" class="input--text" placeholder=" " required>
           <label class="input__label" for="username">Username</label>
         </div>
         <div class="input">
           <span class="input__icon" aria-hidden="true"><i class="fas fa-lock"></i></span>
-          <input type="password" name="password" id="password" class="input--text" placeholder="password">
+          <input type="password" name="password" id="password" class="input--text" placeholder=" " required>
           <label class="input__label" for="password">Password</label>
         </div>
         <div class="input">
 
           <span class="input__icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
-          <input type="text" name="email" id="email" class="input--text" placeholder="email">
+          <input type="text" name="email" id="email" class="input--text" placeholder=" " required>
           <label class="input__label" for="email">Email</label>
         </div>
         <div class="input">
@@ -39,8 +82,8 @@
             I agree to the <a href="#">Terms of Service</a>
           </label>
         </div>
-      </form>
         <input type="submit" name="register" value="sign up" class="form__submit">
+      </form>
     </div>
     
     </div>
